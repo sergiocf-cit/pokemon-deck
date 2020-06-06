@@ -1,0 +1,21 @@
+.search-bar {
+  display: flex;
+  margin: 1rem;
+
+  justify-content: center;
+
+  mat-form-field {
+    min-width: 50%;
+    margin-right: 1rem;
+  }
+}
+
+.result {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  app-deck-box {
+    margin: 1rem;
+  }
+}
