@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { FormControl } from "@angular/forms";
 import { Deck } from "../shared/deck.model";
+import { DeckDatabaseService } from "../shared/deck-database.service";
 
 @Component({
   selector: "app-list",
@@ -8,35 +8,29 @@ import { Deck } from "../shared/deck.model";
   styleUrls: ["./list.component.scss"],
 })
 export class ListComponent implements OnInit {
-  search = new FormControl("");
+  private decks: Deck[];
 
-  deckList: Array<Deck>;
+  constructor(private deckDatabaseService: DeckDatabaseService) {}
 
-  constructor() {}
-
-  ngOnInit() {
-    this.initSearch();
-    this.initDeckList();
-  }
-
-  private initSearch(): void {
-    this.search.valueChanges.subscribe((value) => console.log(value));
-  }
-
-  private initDeckList(): void {
-    this.deckList = [
-      {
-        name: "Picachu Deck",
-        id: 1,
-      },
-      {
-        name: "Raio Deck",
-        id: 2,
-      },
-    ];
+  public ngOnInit() {
+    this.initDecks();
   }
 
   public deleteItem(id: number): void {
-    this.deckList = this.deckList.filter((it) => it.id !== id);
+    this.deckDatabaseService.remove(id);
+
+    this.decks = this.decks.filter((i) => i.id !== id);
+  }
+
+  public goToLink(): void {
+    location.href = "decks/insert";
+  }
+
+  private initDecks() {
+    this.decks = this.deckDatabaseService.findAll();
+  }
+
+  public search(value: string): void {
+    this.decks = this.deckDatabaseService.findByName(value);
   }
 }

@@ -7,9 +7,10 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatCardModule } from "@angular/material/card";
+import { SearchComponent } from "./search/search.component";
 
 @NgModule({
-  declarations: [],
+  declarations: [SearchComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -27,6 +28,7 @@ import { MatCardModule } from "@angular/material/card";
     MatButtonModule,
     MatTooltipModule,
     MatCardModule,
+    SearchComponent,
   ],
 })
 export class SharedModule {}
