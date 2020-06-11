@@ -9,4 +9,12 @@ describe("DeckDatabaseService", () => {
     const service: DeckDatabaseService = TestBed.get(DeckDatabaseService);
     expect(service).toBeTruthy();
   });
+
+  it("should be created", () => {
+    const service: DeckDatabaseService = TestBed.get(DeckDatabaseService);
+    const deck = { name: "test name", cards: [] };
+    service.add(deck);
+
+    expect(service.filterByName("name")).toEqual([deck]);
+  });
 });

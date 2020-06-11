@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
   styleUrls: ["./list.component.scss"],
 })
 export class ListComponent implements OnInit {
-  private decks: Deck[];
+  public decks: Deck[];
 
   constructor(
     private deckDatabaseService: DeckDatabaseService,
