@@ -10,6 +10,8 @@ import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
 
+import { FormsModule } from "@angular/forms";
+
 import { SearchComponent } from "./search/search.component";
 import { InputCardComponent } from "./input-card/input-card.component";
 
@@ -25,9 +27,11 @@ import { InputCardComponent } from "./input-card/input-card.component";
     MatCardModule,
     MatButtonModule,
     MatDividerModule,
+    FormsModule,
     MatListModule,
   ],
   exports: [
+    FormsModule,
     MatListModule,
     MatInputModule,
     MatIconModule,

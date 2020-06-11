@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { DeckService } from "../shared/deck/deck.service";
 import { Card } from "../shared/card/card.model";
 import { Deck } from "../shared/deck/deck.model";
+import { DeckDatabaseService } from "../shared/deck/deck-database.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-insert",
@@ -13,7 +15,11 @@ export class InsertComponent implements OnInit {
 
   public myDeck: Deck;
 
-  constructor(private deckService: DeckService) {}
+  constructor(
+    private deckService: DeckService,
+    private deckDatabaseService: DeckDatabaseService,
+    private router: Router
+  ) {}
 
   public ngOnInit() {
     this.initCards();
@@ -35,6 +41,12 @@ export class InsertComponent implements OnInit {
 
   public removeCard(card: Card): void {
     this.myDeck.cards = this.myDeck.cards.filter((v) => v.id !== card.id);
+  }
+
+  public saveDeck(): void {
+    this.deckDatabaseService.add(this.myDeck);
+
+    this.router.navigate(["decks"]);
   }
 
   private initCards(): void {

@@ -1,7 +1,12 @@
 <div class="search-bar">
   <app-search (searchEvent)="search($event)"></app-search>
 
-  <button mat-fab color="primary" matTooltip="Save a new deck">
+  <button
+    (click)="saveDeck()"
+    mat-fab
+    color="primary"
+    matTooltip="Save a new deck"
+  >
     <mat-icon>save</mat-icon>
   </button>
 </div>
@@ -16,6 +21,11 @@
   </div>
 
   <div class="panel">
+    <mat-form-field appearance="outline">
+      <mat-label>Deck Name</mat-label>
+      <input matInput placeholder="Ex: My Deck" [(ngModel)]="myDeck.name" />
+    </mat-form-field>
+
     <mat-list>
       <mat-list-item *ngFor="let card of myDeck.cards">
         <app-input-card
