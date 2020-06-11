@@ -1,27 +1,43 @@
 # PokemonDeck
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.24.
+This is a simple but complete app that access [Pokemon](https://docs.pokemontcg.io/#api_v1cards_list) api made in Angular
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm install` then run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `ng test --code-coverage` to execute the unit tests.
 
-## Running end-to-end tests
+The Statements coverage now is: 87.23%
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+It is easy to increase this number only using same techniques already applied
+in this project.
 
-## Further help
+## Architecture details
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+It has the following Angular modules:
+
+- **About**
+- **core**: where should go all things shared for all modules. Now it is empty.
+- **decks**: That is a feature module. Check Angular docs for more details.
+- **shared**: Only imported by feature modules, here goes things like Material imports and also Angular Components that will be used across all app.
+
+About the **package** structure I decided to follow by Feature Package. So you will
+not see directories like **services** where go all Angular services or like **model** where go all models.
+
+I also like to mix Feature Package + Type Package so we could have something like:
+
+- decks/detail/service
+- card/detail/service
+
+But I did not follow this approuch here.
+
+I tried to not repete my self when creating components name so we have:
+
+- **decks/list/list.component** instead of **decks/list/list-deck.component**
+
+I like to follow this approuch mainly when the component will not be exported to another module.
+
+In case of any question reach me out!
