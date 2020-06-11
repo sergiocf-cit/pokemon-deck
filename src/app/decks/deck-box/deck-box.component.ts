@@ -19,6 +19,8 @@ export class DeckBoxComponent implements OnInit {
   ngOnInit() {}
 
   public detail(): void {
-    this.router.navigate(["decks/detail"]);
+    this.router.navigate(["decks/detail"], {
+      queryParams: { name: this.deck.name },
+    });
   }
 }

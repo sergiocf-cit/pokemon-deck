@@ -8,6 +8,7 @@ import { DeckBoxComponent } from "./deck-box/deck-box.component";
 import { InsertComponent } from "./insert/insert.component";
 import { CardBoxComponent } from "./card-box/card-box.component";
 import { InputCardComponent } from "../shared/input-card/input-card.component";
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import { InputCardComponent } from "../shared/input-card/input-card.component";
     InsertComponent,
     DeckBoxComponent,
     CardBoxComponent,
+    DetailComponent,
   ],
   imports: [CommonModule, SharedModule, DecksRoutingModule],
 })

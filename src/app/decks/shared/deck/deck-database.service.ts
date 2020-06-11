@@ -21,7 +21,11 @@ export class DeckDatabaseService {
     return this.decks;
   }
 
-  public findByName(name: string): Deck[] {
+  public filterByName(name: string): Deck[] {
     return this.decks.filter((deck) => deck.name.includes(name) || name === "");
+  }
+
+  public findByName(name: string): Deck {
+    return this.decks.find((deck) => deck.name === name);
   }
 }

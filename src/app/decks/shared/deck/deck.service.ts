@@ -3,6 +3,7 @@ import { PokemonTCG } from "pokemon-tcg-sdk-typescript";
 import { from, Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import { Card } from "../card/card.model";
+import { SuperType } from "../card/super-type.enum";
 
 @Injectable({
   providedIn: "root",
@@ -22,7 +23,14 @@ export class DeckService {
 
   private mapToCard(pokemonCards: PokemonTCG.Card[]): Card[] {
     return pokemonCards.map((v) => {
-      return { id: v.id, name: v.name, imageUrl: v.imageUrl, amount: 1 };
+      return {
+        id: v.id,
+        name: v.name,
+        imageUrl: v.imageUrl,
+        amount: 1,
+        supertype: SuperType[v.supertype],
+        types: v.types,
+      };
     });
   }
 }

@@ -34,6 +34,6 @@ export class ListComponent implements OnInit {
   }
 
   public search(value: string): void {
-    this.decks = this.deckDatabaseService.findByName(value);
+    this.decks = this.deckDatabaseService.filterByName(value);
   }
 }
