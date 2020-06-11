@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-title>{{ card.name }}</mat-card-title>
   </mat-card-header>
 
-  <img mat-card-image [src]="imageUrl" />
+  <img mat-card-image [src]="card.imageUrl" />
 
   <mat-card-actions>
-    <button mat-button>ADD</button>
+    <button (click)="add()" mat-button>ADD</button>
   </mat-card-actions>
 </mat-card>

@@ -7,10 +7,14 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
+import { MatListModule } from "@angular/material/list";
+
 import { SearchComponent } from "./search/search.component";
+import { InputCardComponent } from "./input-card/input-card.component";
 
 @NgModule({
-  declarations: [SearchComponent],
+  declarations: [SearchComponent, InputCardComponent],
   imports: [
     CommonModule,
     MatInputModule,
@@ -19,8 +23,12 @@ import { SearchComponent } from "./search/search.component";
     ReactiveFormsModule,
     MatTooltipModule,
     MatCardModule,
+    MatButtonModule,
+    MatDividerModule,
+    MatListModule,
   ],
   exports: [
+    MatListModule,
     MatInputModule,
     MatIconModule,
     MatFormFieldModule,
@@ -28,7 +36,9 @@ import { SearchComponent } from "./search/search.component";
     MatButtonModule,
     MatTooltipModule,
     MatCardModule,
+    MatDividerModule,
     SearchComponent,
+    InputCardComponent,
   ],
 })
 export class SharedModule {}

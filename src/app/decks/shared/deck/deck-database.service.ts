@@ -15,8 +15,8 @@ export class DeckDatabaseService {
     this.decks.push(deck);
   }
 
-  public remove(id: number) {
-    this.decks = this.decks.filter((deck) => deck.id !== id);
+  public remove(name: string) {
+    this.decks = this.decks.filter((deck) => deck.name !== name);
   }
 
   public findAll(): Deck[] {
@@ -31,11 +31,11 @@ export class DeckDatabaseService {
     this.decks = [
       {
         name: "Picachu Deck",
-        id: 1,
+        cards: [],
       },
       {
         name: "Raio Deck",
-        id: 2,
+        cards: [],
       },
     ];
   }

@@ -7,10 +7,23 @@
 </div>
 
 <div class="result">
-  <app-card-box
-    *ngFor="let card of cards"
-    [name]="card.name"
-    [id]="card.id"
-    [imageUrl]="card.imageUrl"
-  ></app-card-box>
+  <div class="cards">
+    <app-card-box
+      (addEvent)="addCard($event)"
+      *ngFor="let card of cards"
+      [card]="card"
+    ></app-card-box>
+  </div>
+
+  <div class="panel">
+    <mat-list>
+      <mat-list-item *ngFor="let card of myDeck.cards">
+        <app-input-card
+          (removeEvent)="removeCard($event)"
+          [card]="card"
+        ></app-input-card>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>

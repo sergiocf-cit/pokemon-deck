@@ -14,9 +14,15 @@ export class DeckService {
     return from(PokemonTCG.Card.all()).pipe(map(this.mapToCard));
   }
 
+  public findByName(name: string): Observable<Card[]> {
+    const params: PokemonTCG.IQuery[] = [{ name: "name", value: name }];
+
+    return from(PokemonTCG.Card.where(params)).pipe(map(this.mapToCard));
+  }
+
   private mapToCard(pokemonCards: PokemonTCG.Card[]): Card[] {
     return pokemonCards.map((v) => {
-      return { id: v.id, name: v.name, imageUrl: v.imageUrl };
+      return { id: v.id, name: v.name, imageUrl: v.imageUrl, amount: 1 };
     });
   }
 }

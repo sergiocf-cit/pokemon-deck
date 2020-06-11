@@ -9,7 +9,7 @@
     margin-right: 1rem;
   }
 }
-.result {
+.cards {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -17,4 +17,13 @@
   app-card-box {
     margin: 1rem;
   }
+}
+
+.result {
+  display: grid;
+  grid-template-columns: 75% 25%;
+}
+
+app-input-card {
+  width: 100%;
 }

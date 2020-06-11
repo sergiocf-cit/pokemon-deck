@@ -9,11 +9,8 @@ export class DeckBoxComponent implements OnInit {
   @Input()
   public name: string;
 
-  @Input()
-  public id: number;
-
   @Output()
-  public delete = new EventEmitter<number>();
+  public delete = new EventEmitter<string>();
 
   constructor() {}
 

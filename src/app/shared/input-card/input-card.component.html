@@ -1,0 +1,12 @@
+<section>
+  <span>{{ card.amount }}</span>
+
+  <label>{{ card.name }}</label>
+  <button (click)="remove()" mat-icon-button color="accent">
+    <mat-icon>remove_circle</mat-icon>
+  </button>
+
+  <button (click)="add()" mat-icon-button color="accent">
+    <mat-icon>add_circle</mat-icon>
+  </button>
+</section>
