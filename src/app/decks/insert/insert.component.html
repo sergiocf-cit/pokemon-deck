@@ -1,1 +1,16 @@
-<p>insert works!</p>
+<div class="search-bar">
+  <app-search (searchEvent)="search($event)"></app-search>
+
+  <button mat-fab color="primary" matTooltip="Save a new deck">
+    <mat-icon>save</mat-icon>
+  </button>
+</div>
+
+<div class="result">
+  <app-card-box
+    *ngFor="let card of cards"
+    [name]="card.name"
+    [id]="card.id"
+    [imageUrl]="card.imageUrl"
+  ></app-card-box>
+</div>

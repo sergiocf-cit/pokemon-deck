@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { Deck } from "../shared/deck.model";
-import { DeckDatabaseService } from "../shared/deck-database.service";
+import { Deck } from "../shared/deck/deck.model";
+import { DeckDatabaseService } from "../shared/deck/deck-database.service";
 
 @Component({
   selector: "app-list",
