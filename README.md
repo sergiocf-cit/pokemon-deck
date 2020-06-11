@@ -1,6 +1,6 @@
 # PokemonDeck
 
-This is a simple but complete app that access [Pokemon](https://docs.pokemontcg.io/#api_v1cards_list) api made in Angular
+This is a simple but complete app that access [Pokemon Api](https://docs.pokemontcg.io/#api_v1cards_list) made in Angular.
 
 ## Development server
 
@@ -12,32 +12,32 @@ Run `ng test --code-coverage` to execute the unit tests.
 
 The Statements coverage now is: 87.23%
 
-It is easy to increase this number only using same techniques already applied
-in this project.
+It is easy to increase this number by using the same techniques already applied
+to this project.
 
 ## Architecture details
 
 It has the following Angular modules:
 
 - **About**
-- **core**: where should go all things shared for all modules. Now it is empty.
-- **decks**: That is a feature module. Check Angular docs for more details.
-- **shared**: Only imported by feature modules, here goes things like Material imports and also my Angular Components that will be used across all app.
+- **core**: Where all things shared for all modules should go to. Now it is empty.
+- **decks**: This is a feature module. Check Angular docs for more details.
+- **shared**: Only imported by feature modules, where things like Material imports and also my Angular Components are kept.
 
-About the **package** structure I decided to follow by Feature Package. So you will
-not see directories like **services** where go all Angular services or like **model** where go all models.
+About the **package** structure I decided to follow "by Feature Package" strategy. So you will
+not see directories like **services** where all Angular services go or like **model** where all models go.
 
-I also like to mix Feature Package + Type Package so we could have something like:
+I also like to mix "by Feature Package" + Type Package so we could have something like:
 
 - decks/detail/service
 - card/detail/service
 
-But I did not follow this approuch here.
+But I did not follow this approach here.
 
-I tried to not repete my self when creating components name so we have:
+I tried to avoid repeating feature's name when creating components like:
 
-- **decks/list/list.component** instead of **decks/list/list-deck.component**
+- **decks/list/list.component** instead of **decks/list-deck/list-deck.component**
 
-I like to follow this approuch mainly when the component will not be exported to another module.
+I like to follow this approach mainly when the component will not be exported to another module.
 
 In case of any question reach me out!
