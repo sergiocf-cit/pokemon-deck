@@ -20,9 +20,9 @@ export class ListComponent implements OnInit {
     this.initDecks();
   }
 
-  public deleteItem(name: string): void {
+  public deleteItem(deck: Deck): void {
     this.deckDatabaseService.remove(name);
-    this.decks = this.decks.filter((i) => i.name !== name);
+    this.decks = this.decks.filter((i) => i.name !== deck.name);
   }
 
   public goToLink(): void {

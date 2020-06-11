@@ -1,4 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Deck } from "../shared/deck/deck.model";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-deck-box",
@@ -7,12 +9,16 @@ import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
 })
 export class DeckBoxComponent implements OnInit {
   @Input()
-  public name: string;
+  public deck: Deck;
 
   @Output()
-  public delete = new EventEmitter<string>();
+  public deleteEvent = new EventEmitter<Deck>();
 
-  constructor() {}
+  constructor(private router: Router) {}
 
   ngOnInit() {}
+
+  public detail(): void {
+    this.router.navigate(["decks/detail"]);
+  }
 }

@@ -1,8 +1,9 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title>{{ name }}</mat-card-title>
+    <mat-card-title>{{ deck.name }}</mat-card-title>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-button (click)="delete.emit(name)">DELETE</button>
+    <button mat-button (click)="deleteEvent.emit(deck)">DELETE</button>
+    <button mat-button (click)="detail()">DETAIL</button>
   </mat-card-actions>
 </mat-card>

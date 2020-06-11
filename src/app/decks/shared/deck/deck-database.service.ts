@@ -13,8 +13,8 @@ export class DeckDatabaseService {
     this.decks.push(deck);
   }
 
-  public remove(name: string) {
-    this.decks = this.decks.filter((deck) => deck.name !== name);
+  public remove(deck: Deck) {
+    this.decks = this.decks.filter((v) => v.name !== deck.name);
   }
 
   public findAll(): Deck[] {

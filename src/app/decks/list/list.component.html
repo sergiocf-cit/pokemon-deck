@@ -14,8 +14,7 @@
 <div class="result">
   <app-deck-box
     *ngFor="let deck of decks"
-    (delete)="deleteItem($event)"
-    [name]="deck.name"
-    [id]="deck.id"
+    (deleteEvent)="deleteItem($event)"
+    [deck]="deck"
   ></app-deck-box>
 </div>
