@@ -9,6 +9,7 @@ import { MatTooltipModule } from "@angular/material/tooltip";
 import { MatCardModule } from "@angular/material/card";
 import { MatDividerModule } from "@angular/material/divider";
 import { MatListModule } from "@angular/material/list";
+import { MatSnackBarModule } from "@angular/material/snack-bar";
 
 import { FormsModule } from "@angular/forms";
 
@@ -29,6 +30,7 @@ import { InputCardComponent } from "./input-card/input-card.component";
     MatDividerModule,
     FormsModule,
     MatListModule,
+    MatSnackBarModule,
   ],
   exports: [
     FormsModule,
@@ -43,6 +45,7 @@ import { InputCardComponent } from "./input-card/input-card.component";
     MatDividerModule,
     SearchComponent,
     InputCardComponent,
+    MatSnackBarModule,
   ],
 })
 export class SharedModule {}

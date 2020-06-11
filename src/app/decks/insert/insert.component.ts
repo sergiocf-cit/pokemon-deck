@@ -4,6 +4,7 @@ import { Card } from "../shared/card/card.model";
 import { Deck } from "../shared/deck/deck.model";
 import { DeckDatabaseService } from "../shared/deck/deck-database.service";
 import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: "app-insert",
@@ -18,7 +19,8 @@ export class InsertComponent implements OnInit {
   constructor(
     private deckService: DeckService,
     private deckDatabaseService: DeckDatabaseService,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) {}
 
   public ngOnInit() {
@@ -44,12 +46,79 @@ export class InsertComponent implements OnInit {
   }
 
   public saveDeck(): void {
-    this.deckDatabaseService.add(this.myDeck);
+    if (this.hasErrors()) {
+      return;
+    }
 
+    this.deckDatabaseService.add(this.myDeck);
     this.router.navigate(["decks"]);
   }
 
   private initCards(): void {
     this.deckService.findAll().subscribe((cards) => (this.cards = cards));
   }
+
+  private hasErrors(): boolean {
+    if (this.deckDatabaseService.findByName(this.myDeck.name)) {
+      this.openSnack("Deck name already exists");
+      return true;
+    }
+
+    const numberOfCards = this.getNumberOfCards();
+
+    if (numberOfCards < 24 || numberOfCards > 60) {
+      this.openSnack(
+        `Number of cards must be between 24 and 60. You have ${numberOfCards}`
+      );
+      return true;
+    }
+
+    const cardMoreThen4Cards = this.getCardsWithMoreThan4Repetition();
+
+    if (cardMoreThen4Cards.length > 0) {
+      this.openSnack(
+        `Name cards with more than 4 cards: ${cardMoreThen4Cards}`
+      );
+      return true;
+    }
+
+    return false;
+  }
+
+  private getNumberOfCards(): number {
+    return this.myDeck.cards
+      .map((v) => v.amount)
+      .reduce((previous, current) => previous + current, 0);
+  }
+
+  private getCardsWithMoreThan4Repetition(): string[] {
+    const result = [];
+    const uniqueNames = [
+      ...new Set(this.myDeck.cards.map((card) => card.name)),
+    ];
+
+    uniqueNames.forEach((name) => {
+      const numberOfCards = this.myDeck.cards
+        .filter((v) => v.name === name)
+        .map((v) => v.amount)
+        .reduce((previous, current) => previous + current, 0);
+
+      if (numberOfCards > MAX_NUMBER_CARD) {
+        result.push(name);
+      }
+    });
+
+    return result;
+  }
+
+  private openSnack(message: string): void {
+    this.snackBar.open(message, "dimiss", {
+      duration: 10000,
+
+      horizontalPosition: "center",
+      verticalPosition: "top",
+    });
+  }
 }
+
+const MAX_NUMBER_CARD = 4;
