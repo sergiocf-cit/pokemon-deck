@@ -22,7 +22,7 @@ It has the following Angular modules:
 - **About**
 - **core**: where should go all things shared for all modules. Now it is empty.
 - **decks**: That is a feature module. Check Angular docs for more details.
-- **shared**: Only imported by feature modules, here goes things like Material imports and also Angular Components that will be used across all app.
+- **shared**: Only imported by feature modules, here goes things like Material imports and also my Angular Components that will be used across all app.
 
 About the **package** structure I decided to follow by Feature Package. So you will
 not see directories like **services** where go all Angular services or like **model** where go all models.
