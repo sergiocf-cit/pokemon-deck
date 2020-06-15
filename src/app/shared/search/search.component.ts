@@ -7,7 +7,7 @@ import { FormControl } from "@angular/forms";
   styleUrls: ["./search.component.scss"],
 })
 export class SearchComponent implements OnInit {
-  private searchFormControl = new FormControl("");
+  public searchFormControl = new FormControl("");
 
   @Output()
   public searchEvent = new EventEmitter<string>();
